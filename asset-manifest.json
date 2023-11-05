@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/srawan-meesala.github.io/static/css/main.cf3bc6d9.css",
+    "main.js": "/srawan-meesala.github.io/static/js/main.4bec4d4d.js",
+    "static/js/787.e1029910.chunk.js": "/srawan-meesala.github.io/static/js/787.e1029910.chunk.js",
+    "index.html": "/srawan-meesala.github.io/index.html",
+    "main.cf3bc6d9.css.map": "/srawan-meesala.github.io/static/css/main.cf3bc6d9.css.map",
+    "main.4bec4d4d.js.map": "/srawan-meesala.github.io/static/js/main.4bec4d4d.js.map",
+    "787.e1029910.chunk.js.map": "/srawan-meesala.github.io/static/js/787.e1029910.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cf3bc6d9.css",
+    "static/js/main.4bec4d4d.js"
+  ]
+}
