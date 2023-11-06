@@ -1,6 +1,9 @@
 import './App.css';
 
 function App() {
+  let s1 = "<Software Development />"
+  let s2 = "<Front-End Development />"
+  let s3 = "<Web3.0 Development />"
   return (
     <div className="App">
       <div className="card-1">
@@ -8,7 +11,7 @@ function App() {
         <div className="name">SRAWAN MEESALA</div>
         <div className="card-1-role">
           <div className="card-1-role-text">
-            Software Development.<br /> Front-End Development.<br /> Web3.0 Development.
+            {s1}<br /> {s2}<br /> {s3}
           </div>
         </div>
       </div>
@@ -16,14 +19,37 @@ function App() {
         <div className="card-2-head">Myself.</div>
         <div className="card-2-content">
           <div className="card-2-content-text">
-            Born in <span>Vizianagaram, AndhraPradesh, India.</span><br />
-            Bachelor of Technology from <span>Indian Institute Of Information Technology, Sri City.</span><br />
+            Born in <span>Vizianagaram, Andhra Pradesh, India.</span> 2004 july 7.<br />
+            Bachelor of Technology from <span>Indian Institute Of Information Technology, Sri City.</span> 2021 - present.<br />
             My mission is to bring <span>innovation</span> to life, <span>one line of code</span> at a time. <br />
             I'm a firm believer in the endless possibilities that <span>technology</span> can unlock, and I'm here to make those possibilities<span> a reality.</span>
           </div>
         </div>
       </div>
       <div className="card-3">
+        <div className="card-2-head">Skills.</div>
+        <div className="card-2-content">
+          <div className="card-2-content-text">
+            <div>
+              Programming Languages <span>C, C++, Python, Java, Javascript, Golang, Solidity</span><br />
+            </div>
+            <div>
+              web dev frameworks <span>reactjs, nodejs, embeddedjs, expressjs, hardhat, ethersjs, django</span><br />
+            </div>
+            <div>
+              Software <span>Problem Solving, Git, oops, operating system, computer networks</span><br />
+            </div>
+            <div>
+              Database Management<span>mysql, sqlite3, mongodb</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="card-4">
+        <div className="card-2-head">Projects.</div>
+        
+      </div>
+      <div className="card-5">
         <div className="card-2-head">Links.</div>
         <div className="card-2-content">
           <div className="card-2-content-text">
@@ -41,10 +67,6 @@ function App() {
             </a>
           </div>
         </div>
-      </div>
-      <div className="card-4">
-      <div className="card-2-head">Projects.</div>
-        
       </div>
     </div>
   );
