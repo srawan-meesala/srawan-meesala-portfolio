@@ -1,9 +1,12 @@
 import './App.css';
+import Links from './components/Links';
+import Projects from './components/Projects';
 
 function App() {
   let s1 = "<Software Development />"
-  let s2 = "<Front-End Development />"
+  let s2 = "<Full Stack Development />"
   let s3 = "<Web3.0 Development />"
+  let s4 = "<Deep Learning, Python/>"
   return (
     <div className="App">
       <div className="card-1">
@@ -11,7 +14,7 @@ function App() {
         <div className="name">SRAWAN MEESALA</div>
         <div className="card-1-role">
           <div className="card-1-role-text">
-            {s1}<br /> {s2}<br /> {s3}
+            {s1}<br /> {s2}<br /> {s3}<br /> {s4}
           </div>
         </div>
       </div>
@@ -31,7 +34,7 @@ function App() {
         <div className="card-2-content">
           <div className="card-2-content-text">
             <div>
-              Programming Languages <span>C, C++, Python, Java, Javascript, Golang, Solidity</span><br />
+              Programming Languages <span>C, C++, Python, Java, Javascript, Solidity*</span><br />
             </div>
             <div>
               web dev frameworks <span>reactjs, nodejs, embeddedjs, expressjs, hardhat, ethersjs, django</span><br />
@@ -45,29 +48,8 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="card-4">
-        <div className="card-2-head">Projects.</div>
-        
-      </div>
-      <div className="card-5">
-        <div className="card-2-head">Links.</div>
-        <div className="card-2-content">
-          <div className="card-2-content-text">
-            <a href="mailto: srawanviz@gmail.com">
-              E-Mail <span>srawanviz@gmail.com</span><br />
-            </a>
-            <a href="https://www.linkedin.com/in/srawan-meesala-35b3b3242/">
-              Linked in <span>srawan meesala</span><br />
-            </a>
-            <a href="https://github.com/srawan-meesala">
-              github <span>@srawan-meesala</span><br />
-            </a>
-            <a href="https://www.instagram.com/srawan_meesala/">
-              Instagram<span>@srawan_meesala</span>
-            </a>
-          </div>
-        </div>
-      </div>
+      <Projects />
+      <Links />
     </div>
   );
 }
