@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <div className="card-1">
-        <div className="hello">Hello. I am</div>
+        <div className="hello">Hello I am</div>
         <div className="name">SRAWAN MEESALA</div>
         <div className="card-1-role">
           <div className="card-1-role-text">
@@ -34,7 +34,7 @@ function App() {
         <div className="card-2-content">
           <div className="card-2-content-text">
             <div>
-              Programming Languages <span>C, C++, Python, Java, Javascript, Solidity*</span><br />
+              Programming Languages <span>C, C++, Python, Java, Javascript, Solidity</span><br />
             </div>
             <div>
               web dev frameworks <span>reactjs, nodejs, embeddedjs, expressjs, hardhat, ethersjs, django</span><br />
