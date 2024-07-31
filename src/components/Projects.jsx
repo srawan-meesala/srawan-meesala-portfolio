@@ -3,44 +3,44 @@ import EachProject from './EachProject'
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 const Projects = () => {
 
-    var numOfProjects = 6
+    // var numOfProjects = 6
 
-    const leftSlider = () => {
-      const wrap = document.getElementById('wrap')
-      console.log(wrap, wrap.style.translate);
-      if (wrap.style.translate !== '') {
-        if (wrap.style.translate === '1912.5px') {
-          return
-        }
-        console.log(wrap.style.translate);
-        var value = parseFloat(wrap.style.translate)
-        console.log(value)
-        value += 750
-        var final = String(value)+'px'
-        console.log(value);
-        wrap.style.translate = final
-      } else {
-        return
-      }
-    }
-    const rightSlider = () => {
-      const wrap = document.getElementById('wrap')
-      console.log(wrap, wrap.style.translate);
-      if (wrap.style.translate !== '') {
-        if (wrap.style.translate === '-1837.5px') {
-          return
-        }
-        console.log(wrap.style.translate);
-        var value = parseFloat(wrap.style.translate)
-        console.log(value)
-        value -= 750
-        var final = String(value)+'px'
-        console.log(value);
-        wrap.style.translate = final
-      } else {
-        wrap.style.translate = '1162.5px'
-      }
-    }
+    // const leftSlider = () => {
+    //   const wrap = document.getElementById('wrap')
+    //   console.log(wrap, wrap.style.translate);
+    //   if (wrap.style.translate !== '') {
+    //     if (wrap.style.translate === '1912.5px') {
+    //       return
+    //     }
+    //     console.log(wrap.style.translate);
+    //     var value = parseFloat(wrap.style.translate)
+    //     console.log(value)
+    //     value += 750
+    //     var final = String(value)+'px'
+    //     console.log(value);
+    //     wrap.style.translate = final
+    //   } else {
+    //     return
+    //   }
+    // }
+    // const rightSlider = () => {
+    //   const wrap = document.getElementById('wrap')
+    //   console.log(wrap, wrap.style.translate);
+    //   if (wrap.style.translate !== '') {
+    //     if (wrap.style.translate === '-1837.5px') {
+    //       return
+    //     }
+    //     console.log(wrap.style.translate);
+    //     var value = parseFloat(wrap.style.translate)
+    //     console.log(value)
+    //     value -= 750
+    //     var final = String(value)+'px'
+    //     console.log(value);
+    //     wrap.style.translate = final
+    //   } else {
+    //     wrap.style.translate = '1162.5px'
+    //   }
+    // }
 
     var projects = [
       {
@@ -69,7 +69,9 @@ const Projects = () => {
         "name": "Potato Disease Detection",
         "techstack": ["Deep Learning", "Python", "Tensorflow", "CNN", "FASTAPI", "tf serving"],
         "description": [
-          ""  
+          "Engineered a deep learning solution that analyzed over 1,000 images of potato leaves to distinguish between healthy plants and disease-affected specimens; enhanced diagnostic speed by 50%, significantly improving response time for farmers.",
+          "Achieved high model performance with an average prediction confidence of 99.33% and validation accuracy of 99.59%, showcasing robust and reliable classification capabilities.",
+          "Implemented a FastAPI server for backend integration, enhancing system communication efficiency by 40%; simultaneously developed a user-friendly ReactJS frontend, enabling real-time disease diagnosis."
         ],
         "github": "https://github.com/srawan-meesala/"
       },
@@ -120,18 +122,23 @@ const Projects = () => {
         <>
             <div className="card-4">
                 <div className="card-2-head">Projects.</div>
-                <div className="corousel">
+                 {/*<div className="corousel">
                   <div className="corousel-inside">
                     <div className="slider">
                       <div onClick={leftSlider} id='left-slider' className="sliders"><FaChevronLeft /></div>
                       <div onClick={rightSlider} id='right-slider' className="sliders"><FaChevronRight /></div>
-                    </div>
+                    </div> 
                     <div id='wrap' className="wrap">
                       {projects.map((project, key) => 
-                        <div className="project"><EachProject project={project}/></div>
+                        <div className="project" key={key}><EachProject project={project}/></div>
                       )}
                     </div>
                   </div>
+                </div>*/}
+                <div id='wrap' className="wrap">
+                  {projects.map((project, key) => 
+                    <div className="project" key={key}><EachProject project={project}/></div>
+                  )}
                 </div>
             </div>
         </>
