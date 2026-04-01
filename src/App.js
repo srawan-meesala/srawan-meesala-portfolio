@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <div className="card-1">
-        <div className="hello">Hello I am</div>
+        <div className="hello">Hello, I am</div>
         <div className="name">SRAWAN MEESALA</div>
         <div className="card-1-role">
           <div className="card-1-role-text">
