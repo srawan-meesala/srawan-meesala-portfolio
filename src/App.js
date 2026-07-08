@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 
+const Experience = lazy(() => import('./components/Experience'));
 const Projects = lazy(() => import('./components/Projects'));
 const Links = lazy(() => import('./components/Links'));
 
@@ -36,7 +37,7 @@ function App() {
         <div className="w-full flex-grow flex items-center justify-center p-8 md:px-[100px] lg:px-[200px] z-0 -mt-10 md:-mt-20">
           <div className="text-[20px] md:text-[30px] lg:text-[34px] text-c-primary leading-relaxed">
             Born in <span className="font-bebas text-[28px] md:text-[40px] lg:text-[48px] text-c-black line-clamp-none whitespace-normal">Vizianagaram, Andhra Pradesh, India.</span> 2004 july 7.<br className="hidden md:block" />
-            Bachelor of Technology from <span className="font-bebas text-[28px] md:text-[40px] lg:text-[48px] text-c-black">Indian Institute Of Information Technology, Sri City.</span> 2021 - present.<br className="hidden md:block" />
+            Bachelor of Technology from <span className="font-bebas text-[28px] md:text-[40px] lg:text-[48px] text-c-black">Indian Institute Of Information Technology, Sri City.</span> 2021 - 2025.<br className="hidden md:block" />
             <div className="mt-6 md:mt-4">
               My mission is to bring <span className="font-bebas text-[28px] md:text-[40px] lg:text-[48px] text-c-black">innovation</span> to life, <span className="font-bebas text-[28px] md:text-[40px] lg:text-[48px] text-c-black">one line of code</span> at a time. <br className="hidden md:block" />
               I'm a firm believer in the endless possibilities that <span className="font-bebas text-[28px] md:text-[40px] lg:text-[48px] text-c-black">technology</span> can unlock, and I'm here to make those possibilities<span className="font-bebas text-[28px] md:text-[40px] lg:text-[48px] text-c-black"> a reality.</span>
@@ -54,11 +55,11 @@ function App() {
           <div className="text-[18px] md:text-[28px] text-c-primary w-full max-w-5xl flex flex-col gap-8 md:gap-10">
             <div className="flex flex-col">
               <span className="text-gray-800 uppercase tracking-wide font-inter text-sm md:text-lg mb-1">Programming Languages</span>
-              <span className="font-bebas text-[28px] md:text-[40px] text-[#2C3333]">C, C++, Python, Java, Javascript, Solidity</span>
+              <span className="font-bebas text-[28px] md:text-[40px] text-[#2C3333]">Python, Java, Javascript</span>
             </div>
             <div className="flex flex-col">
               <span className="text-gray-800 uppercase tracking-wide font-inter text-sm md:text-lg mb-1">Web Dev Frameworks</span>
-              <span className="font-bebas text-[28px] md:text-[40px] text-[#2C3333]">ReactJS, NodeJS, EmbeddedJS, ExpressJS, Hardhat, EthersJS, Django</span>
+              <span className="font-bebas text-[28px] md:text-[40px] text-[#2C3333]">ReactJS, NodeJS, EmbeddedJS, ExpressJS, FASTAPI</span>
             </div>
             <div className="flex flex-col">
               <span className="text-gray-800 uppercase tracking-wide font-inter text-sm md:text-lg mb-1">Software</span>
@@ -66,13 +67,14 @@ function App() {
             </div>
             <div className="flex flex-col">
               <span className="text-gray-800 uppercase tracking-wide font-inter text-sm md:text-lg mb-1">Database Management</span>
-              <span className="font-bebas text-[28px] md:text-[40px] text-[#2C3333]">MySQL, SQLite3, MongoDB</span>
+              <span className="font-bebas text-[28px] md:text-[40px] text-[#2C3333]">MySQL, OracleDB, SQLite3, MongoDB, DuckDB</span>
             </div>
           </div>
         </div>
       </div>
 
       <Suspense fallback={<div className="text-center py-20 text-2xl font-inter">Loading...</div>}>
+        <Experience />
         <Projects />
         <Links />
       </Suspense>

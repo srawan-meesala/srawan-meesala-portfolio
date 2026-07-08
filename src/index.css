@@ -20,7 +20,7 @@ code {
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 8px;
   background-color: #171717;
 }
 
@@ -29,7 +29,7 @@ code {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #222;
+  background: #555;
 }
 
 html {
