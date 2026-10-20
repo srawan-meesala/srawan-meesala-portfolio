@@ -5,10 +5,8 @@ const Projects = lazy(() => import('./components/Projects'));
 const Links = lazy(() => import('./components/Links'));
 
 function App() {
-  let s1 = "<Software Development />".toUpperCase()
-  let s2 = "<Full Stack Development />".toUpperCase()
-  let s3 = "<Web3.0 Development />".toUpperCase()
-  let s4 = "<Deep Learning, Python/>".toUpperCase()
+  let s1 = "<Backend Engineer/>".toUpperCase()
+  let s2 = "<Aspiring Data Engineer/>".toUpperCase()
   return (
     <div className="max-w-[100vw] min-h-screen h-auto flex flex-col font-bebas">
 
@@ -24,7 +22,7 @@ function App() {
         </div>
         <div className="w-full text-[#666] flex justify-center md:justify-end md:absolute md:bottom-[10%] md:right-[5%] z-10 px-5 mt-16 md:mt-0">
           <div className="text-[18px] md:text-[30px] text-center md:text-right font-bebas leading-relaxed whitespace-pre">
-            {s1}<br /> {s2}<br /> {s3}<br /> {s4}
+            {s1}<br /> {s2}
           </div>
         </div>
       </div>
@@ -40,7 +38,7 @@ function App() {
             Bachelor of Technology from <span className="font-bebas text-[28px] md:text-[40px] lg:text-[48px] text-c-black">Indian Institute Of Information Technology, Sri City.</span> 2021 - 2025.<br className="hidden md:block" />
             <div className="mt-6 md:mt-4">
               My mission is to bring <span className="font-bebas text-[28px] md:text-[40px] lg:text-[48px] text-c-black">innovation</span> to life, <span className="font-bebas text-[28px] md:text-[40px] lg:text-[48px] text-c-black">one line of code</span> at a time. <br className="hidden md:block" />
-              I'm a firm believer in the endless possibilities that <span className="font-bebas text-[28px] md:text-[40px] lg:text-[48px] text-c-black">technology</span> can unlock, and I'm here to make those possibilities<span className="font-bebas text-[28px] md:text-[40px] lg:text-[48px] text-c-black"> a reality.</span>
+              I&apos;m a firm believer in the endless possibilities that <span className="font-bebas text-[28px] md:text-[40px] lg:text-[48px] text-c-black">technology</span> can unlock, and I&apos;m here to make those possibilities<span className="font-bebas text-[28px] md:text-[40px] lg:text-[48px] text-c-black"> a reality.</span>
             </div>
           </div>
         </div>
