@@ -7,11 +7,13 @@ const experiences = [
     company: 'KFin Technologies Ltd.',
     period: 'Jun 2025 — Present',
     bullets: [
-      <>Designed and developed the <strong>Client Statement Report</strong> module — multi-level investment reports (family, portfolio, customer) — applying Factory and Strategy design patterns for plug-and-play column/section generation and database-agnostic method dispatch.</>,
-      <>Drove a <strong>97%+ reduction</strong> in per-report generation time across three engineering iterations: legacy baseline of 30 min → 2–5 min (improving application level design) → under 1 min (replaced views with flattened queries), owning the Data Service and level-based report generation as the core backbone.</>,
-      <>Architected a bulk report generation pipeline for <strong>~30,000 monthly reports</strong> using DuckDB for portfolio-level data precomputation (fetch latency ~100 ms), Celery workers with a Redis-backed queue for parallel execution, and Python multiprocessing — overcoming the GIL constraint that had previously blocked parallelism.</>,
-      <>Owned end-to-end delivery of the <strong>Value Research data pipeline</strong> — paginated ingestion with bulk, incremental, and schema sync request types — handling requirements, client communication for API token renewals, development, testing, and deployment on a Windows instance with a scheduled execution setup.</>,
-      <>Built the data population pipeline for the <strong>Analytics module</strong> using DuckDB for aggregation-heavy transformations and its native ATTACH feature for DB writes, reducing the monthly maintenance downtime window from <strong>1 hour to 15 minutes</strong>.</>,
+      <>Engineered a bulk XIRR rebuild service (FastAPI, Celery, Redis, pandas) computing XIRR for all active portfolios at portfolio, asset-class, and folio/security levels, replacing a MySQL window-function view that took <strong>~6 hours</strong> with a <strong>~10 min</strong> run.</>,
+      <>Batched the cashflow/holdings query across portfolios and added indexes on multi-million-row tables (<strong>40s → ~2s per task</strong>), pooled DB connections, tracked task success/failure via Redis queues, validated output at multiple levels, and achieved zero-downtime loads via a staging table with an atomic MySQL table swap.</>,
+      <>Architected a bulk report generation pipeline for <strong>~30,000 monthly reports</strong> using DuckDB for portfolio-level data precomputation (fetch latency <strong>~100ms</strong>), Celery workers with a Redis-backed queue for parallel execution, and Python multiprocessing — overcoming the GIL constraint that had previously blocked parallelism.</>,
+      <>Owned end-to-end delivery of the Value Research data pipeline — paginated ingestion with bulk, incremental, and schema sync request types with fault tolerance — handling requirements, development, testing, and deployment across Windows (EC2) instances by default, with cron-based scheduling on client-managed Linux instances for on-premise deployments.</>,
+      <>Moved the pipeline from AWS Lambda to Windows (EC2) to cut costs and limits; prototyped CDC alternatives (AWS DMS, Airbyte, Debezium/Kafka) but shelved them over on-premise constraints and missing upstream primary keys.</>,
+      <>Built the data population pipeline for the Analytics module using DuckDB for aggregation-heavy transformations and its native ATTACH feature for DB writes, reducing the monthly maintenance downtime window from <strong>1 hour to 15 minutes</strong>.</>,
+      <>Designed and built a multi-tenant FastAPI service consolidating client-onboarding PDF generation for AIF (Alternative Investment Fund) schemes across <strong>~150 AMC tenants</strong> — replacing 150 separately billed, tenant-specific Node.js instances with one Dockerized service driven by the Strategy pattern and tenant-specific config, with pluggable strategies spanning dynamic form-filling (docfly, pikepdf), HTML-to-PDF templating via Playwright, and a configurable ODF builder for dynamic sections and attachments — cutting infrastructural costs by an estimated <strong>79%</strong>.</>,
     ],
   },
   {
@@ -21,57 +23,45 @@ const experiences = [
     period: 'Dec 2024 — May 2025',
     bullets: [
       <>Worked on mPower, a large-scale enterprise wealth management and fund accounting platform, focusing on backend debugging, issue resolution, and performance optimisation in complex fund accounting workflows.</>,
-      <>Collaborated on a UI modernisation initiative, transforming legacy modules into dynamic, user-centric interfaces.</>,
-      <>Strengthened production-readiness through structured logging and debugging, enabling faster issue resolution across large-scale deployments.</>,
+      <>Designed and developed the Client Statement Report module — multi-level investment reports (family, portfolio, customer) — applying Factory and Strategy design patterns for plug-and-play column/section generation and database-agnostic method dispatch; covered by unit tests.</>,
+      <>Drove a <strong>97%+ reduction</strong> in per-report generation time across three engineering iterations: legacy baseline of 30 min → 2–5 min (improving application level design) → under 1 min (replaced views with flattened queries), owning the Data Service and level-based report generation as the core backbone.</>,
     ],
   },
 ]
 
 const Experience = () => {
   return (
-    <div className="min-h-screen h-auto w-full bg-black bg-experience-pattern bg-cover bg-center bg-fixed flex flex-col relative overflow-hidden">
-      {/* Section Title */}
-      <div className="text-[60px] md:text-[100px] p-8 md:p-[50px] text-[#666] md:text-[#888] w-full z-10">
-        Experience.
-      </div>
-
-      {/* Experience Cards */}
-      <div className="w-full flex flex-col items-center gap-8 md:gap-12 px-4 md:px-[60px] lg:px-[100px] pb-16 md:pb-24 -mt-4 md:-mt-8 z-10">
-        {experiences.map((exp) => (
-          <div
-            key={exp.id}
-            className="w-full max-w-5xl rounded-xl border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm p-6 md:p-10 transition-all duration-500 hover:border-white/[0.12] hover:bg-white/[0.05] hover:shadow-2xl hover:shadow-[#A5C9CA]/[0.04] group"
-          >
-            {/* Role & Period Header */}
-            <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 md:gap-4 mb-5 md:mb-6">
-              <h3 className="font-inter text-xl md:text-2xl text-[#d4d4d4] group-hover:text-[#A5C9CA] transition-colors duration-300 tracking-tight">
-                <span className="font-semibold">{exp.role}</span>
-                <span className="text-[#888] font-normal">, {exp.company}</span>
-              </h3>
-              <span className="font-bebas text-lg md:text-xl text-[#666] group-hover:text-[#888] transition-colors duration-300 tracking-widest whitespace-nowrap">
-                {exp.period}
-              </span>
-            </div>
-
-            {/* Divider */}
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-5 md:mb-6" />
-
-            {/* Bullet Points */}
-            <ul className="flex flex-col gap-3 md:gap-4 list-none pl-0">
-              {exp.bullets.map((bullet, idx) => (
-                <li
-                  key={`${exp.id}-${idx}`}
-                  className="flex items-start gap-3 md:gap-4 font-inter text-sm md:text-[15px] leading-relaxed text-[#999] group-hover:text-[#b0b0b0] transition-colors duration-300"
-                >
-                  <span className="mt-[7px] min-w-[5px] min-h-[5px] w-[5px] h-[5px] rounded-full bg-[#555] group-hover:bg-[#A5C9CA] transition-colors duration-300 flex-shrink-0" />
-                  <span>{bullet}</span>
-                </li>
-              ))}
-            </ul>
+    <section id="experience" className="border-t border-line bg-[#e8ede8]">
+      <div className="mx-auto w-full max-w-6xl px-5 py-20 md:px-8 md:py-28">
+        <div className="mb-14 grid gap-4 md:grid-cols-[1fr_1fr] md:items-end">
+          <div>
+            <p className="mb-3 font-mono text-xs uppercase text-forest">Career</p>
+            <h2 className="font-display text-4xl font-semibold md:text-6xl">Experience</h2>
           </div>
-        ))}
+          <p className="max-w-lg text-sm leading-6 text-muted md:justify-self-end">Production systems, data pipelines, and performance improvements at enterprise scale.</p>
+        </div>
+
+        <div className="border-t border-[#cbd5ce]">
+          {experiences.map((experience) => (
+            <article key={experience.id} className="grid gap-6 border-b border-[#cbd5ce] py-9 md:grid-cols-[220px_1fr] md:gap-12 md:py-12">
+              <header>
+                <p className="font-mono text-xs text-muted">{experience.period}</p>
+                <h3 className="mt-3 font-display text-xl font-semibold">{experience.role}</h3>
+                <p className="mt-1 text-sm text-muted">{experience.company}</p>
+              </header>
+              <ol className="space-y-0">
+                {experience.bullets.map((bullet, index) => (
+                  <li key={`${experience.id}-${index}`} className="grid gap-3 border-t border-[#d7ded8] py-4 first:border-t-0 first:pt-0 md:grid-cols-[36px_1fr] md:gap-5 md:py-5">
+                    <span className="font-mono text-xs text-coral">{String(index + 1).padStart(2, '0')}</span>
+                    <p className="text-sm leading-7 text-muted md:text-[15px]">{bullet}</p>
+                  </li>
+                ))}
+              </ol>
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
 

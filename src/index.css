@@ -1,17 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --paper: #f2f4ef;
+  --ink: #1b2824;
+  --muted: #5f6b65;
+  --line: #d7ded8;
+  --forest: #2c6855;
+  --coral: #b94f36;
+}
+
 body {
   margin: 0;
-  font-family: 'Bebas Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  min-width: 320px;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #d9e9df;
+  color: var(--ink);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 4px;
 }
 
 code {
@@ -21,15 +40,15 @@ code {
 
 ::-webkit-scrollbar {
   width: 8px;
-  background-color: #171717;
+  background-color: #e4e9e4;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #aab4ae;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #718079;
 }
 
 html {

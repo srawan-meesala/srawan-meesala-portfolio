@@ -14,8 +14,17 @@ module.exports = {
       fontFamily: {
         bebas: ['"Bebas Neue"', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
+        display: ['"Space Grotesk"', 'sans-serif'],
+        sans: ['"DM Sans"', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'monospace'],
       },
       colors: {
+        paper: '#f2f4ef',
+        ink: '#1b2824',
+        muted: '#5f6b65',
+        line: '#d7ded8',
+        forest: '#2c6855',
+        coral: '#b94f36',
         'card2-start': '#E7F6F2',
         'card2-end': '#A5C9CA',
         'card3-start': '#A5C9CA',
