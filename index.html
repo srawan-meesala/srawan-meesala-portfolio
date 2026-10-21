@@ -13,7 +13,7 @@
     <link rel="manifest" href="/manifest.json" />
     <script>
       const savedTheme = localStorage.getItem('theme');
-      const initialTheme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const initialTheme = savedTheme || 'light';
       document.documentElement.dataset.theme = initialTheme;
       document.querySelector('meta[name="theme-color"]').content = initialTheme === 'dark' ? '#151c18' : '#f2f4ef';
     </script>
