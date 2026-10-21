@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import siteConfig from './data/siteConfig';
 
 const Experience = lazy(() => import('./components/Experience'));
@@ -13,6 +13,22 @@ const skillGroups = [
 ];
 
 function App() {
+  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || 'light');
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute(
+      'content',
+      theme === 'dark' ? '#151c18' : '#f2f4ef'
+    );
+  }, [theme]);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    window.localStorage.setItem('theme', nextTheme);
+    setTheme(nextTheme);
+  };
+
   return (
     <div className="min-h-screen bg-paper text-ink font-sans">
       <header className="border-b border-line">
@@ -20,11 +36,29 @@ function App() {
           <a href="#home" className="font-display text-lg font-bold text-ink no-underline" aria-label="Srawan Meesala home">
             SM<span className="text-coral">.</span>
           </a>
-          <nav aria-label="Main navigation" className="flex items-center gap-4 text-sm md:gap-8">
+          <nav aria-label="Main navigation" className="flex items-center gap-3 text-xs md:gap-8 md:text-sm">
             <a className="text-muted no-underline transition-colors hover:text-ink" href="#experience">Experience</a>
             <a className="text-muted no-underline transition-colors hover:text-ink" href="#work">Work</a>
             <a className="text-muted no-underline transition-colors hover:text-ink" href="#skills">Skills</a>
             <a className="text-muted no-underline transition-colors hover:text-ink" href="#contact">Contact</a>
+            <button
+              type="button"
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              aria-pressed={theme === 'dark'}
+              onClick={toggleTheme}
+              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-ink transition-colors hover:border-forest hover:text-forest"
+            >
+              {theme === 'dark' ? (
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" />
+                </svg>
+              ) : (
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <path d="M20.2 15.3A8.5 8.5 0 0 1 8.7 3.8 8.5 8.5 0 1 0 20.2 15.3Z" />
+                </svg>
+              )}
+            </button>
           </nav>
         </div>
       </header>
@@ -44,7 +78,7 @@ function App() {
               I build and operate distributed backend services and data pipelines for enterprise-scale systems.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <a href="#experience" className="inline-flex min-h-12 items-center justify-center bg-ink px-5 text-sm font-semibold text-white no-underline transition-colors hover:bg-forest">
+              <a href="#experience" className="inline-flex min-h-12 items-center justify-center bg-action px-5 text-sm font-semibold text-white no-underline transition-colors hover:bg-action-hover">
                 View experience <span className="ml-3" aria-hidden="true">↓</span>
               </a>
               <a href="#work" className="inline-flex min-h-12 items-center justify-center border border-line px-5 text-sm font-semibold text-ink no-underline transition-colors hover:border-ink">
@@ -77,7 +111,7 @@ function App() {
           </aside>
         </section>
 
-        <section id="profile" aria-labelledby="profile-heading" className="border-y border-line bg-white">
+        <section id="profile" aria-labelledby="profile-heading" className="border-y border-line bg-surface">
           <div className="mx-auto grid w-full max-w-6xl gap-6 px-5 py-12 md:grid-cols-[220px_1fr] md:gap-12 md:px-8 md:py-16">
             <div>
               <p className="mb-3 font-mono text-xs uppercase text-forest">Professional summary</p>
@@ -89,7 +123,7 @@ function App() {
           </div>
         </section>
 
-        <section aria-labelledby="education-heading" className="border-y border-line bg-white">
+        <section aria-labelledby="education-heading" className="border-y border-line bg-surface">
           <div className="mx-auto grid w-full max-w-6xl gap-4 px-5 py-8 md:grid-cols-[180px_1fr_auto] md:items-center md:px-8">
             <p id="education-heading" className="font-mono text-xs uppercase text-muted">Education</p>
             <div>
@@ -103,7 +137,7 @@ function App() {
         <Suspense fallback={<div className="px-5 py-16 text-center text-sm text-muted">Loading portfolio…</div>}>
           <Experience />
           <Projects />
-          <section id="skills" className="border-t border-line bg-white">
+          <section id="skills" className="border-t border-line bg-surface">
             <div className="mx-auto w-full max-w-6xl px-5 py-20 md:px-8 md:py-28">
               <div className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                 <div>

@@ -33,7 +33,7 @@ const EachProject = ({ project, index }) => (
         </div>
 
         {project.impact ? (
-            <figure className="self-start bg-forest p-6 text-white md:mt-8">
+            <figure className="self-start bg-impact p-6 text-white md:mt-8">
             <figcaption className="font-mono text-[10px] uppercase text-white/70">{project.impact.label}</figcaption>
             <div className="mt-8 space-y-6">
                 <div>

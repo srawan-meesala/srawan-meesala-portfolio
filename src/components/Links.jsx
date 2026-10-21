@@ -2,7 +2,7 @@ import React from 'react'
 
 const Links = () => {
   return (
-    <footer id="contact" className="bg-ink text-white">
+    <footer id="contact" className="bg-footer text-white">
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-16 md:grid-cols-[1fr_auto] md:items-end md:px-8 md:py-20">
         <div>
           <p className="mb-3 font-mono text-xs uppercase text-[#e9b09a]">Contact</p>

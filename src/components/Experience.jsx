@@ -31,7 +31,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="border-t border-line bg-[#e8ede8]">
+    <section id="experience" className="border-t border-line bg-subtle">
       <div className="mx-auto w-full max-w-6xl px-5 py-20 md:px-8 md:py-28">
         <div className="mb-14 grid gap-4 md:grid-cols-[1fr_1fr] md:items-end">
           <div>
@@ -41,9 +41,9 @@ const Experience = () => {
           <p className="max-w-lg text-sm leading-6 text-muted md:justify-self-end">Production systems, data pipelines, and performance improvements at enterprise scale.</p>
         </div>
 
-        <div className="border-t border-[#cbd5ce]">
+        <div className="border-t border-line">
           {experiences.map((experience) => (
-            <article key={experience.id} className="grid gap-6 border-b border-[#cbd5ce] py-9 md:grid-cols-[220px_1fr] md:gap-12 md:py-12">
+            <article key={experience.id} className="grid gap-6 border-b border-line py-9 md:grid-cols-[220px_1fr] md:gap-12 md:py-12">
               <header>
                 <p className="font-mono text-xs text-muted">{experience.period}</p>
                 <h3 className="mt-3 font-display text-xl font-semibold">{experience.role}</h3>
@@ -51,7 +51,7 @@ const Experience = () => {
               </header>
               <ol className="space-y-0">
                 {experience.bullets.map((bullet, index) => (
-                  <li key={`${experience.id}-${index}`} className="grid gap-3 border-t border-[#d7ded8] py-4 first:border-t-0 first:pt-0 md:grid-cols-[36px_1fr] md:gap-5 md:py-5">
+                  <li key={`${experience.id}-${index}`} className="grid gap-3 border-t border-line py-4 first:border-t-0 first:pt-0 md:grid-cols-[36px_1fr] md:gap-5 md:py-5">
                     <span className="font-mono text-xs text-coral">{String(index + 1).padStart(2, '0')}</span>
                     <p className="text-sm leading-7 text-muted md:text-[15px]">{bullet}</p>
                   </li>
